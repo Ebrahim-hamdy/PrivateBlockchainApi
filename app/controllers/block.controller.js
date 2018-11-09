@@ -8,7 +8,7 @@ const blockchain = new Blockchain();
 // Add new Block
 exports.addBlock = async (req, res) => {
   // Validate request
-  if(helper.isEmptyOrSpaces(req.body.data)) {
+  if(helper.isEmptyOrSpaces(req.body.data) || Object.keys(req.body).length === 0) {
     return res.status(400).send({
       message: "Block content can not be empty"
     });
