@@ -23,13 +23,7 @@ class Blockchain {
     async addBlock(newBlock) {
         // Block height
         newBlock.height = await this.getBlockHeight();
-
-        // UTC timestamp
-        newBlock.timeStamp = new Date()
-                                .getTime()
-                                .toString()
-                                .slice(0, -3);
-        // previous block hash                        
+        // previous block hash
         if(newBlock.height > 0) {
             const prevBlock = await this.getBlock(newBlock.height -1);
             newBlock.previousBlockHash = prevBlock.hash;
@@ -59,7 +53,7 @@ class Blockchain {
     async validateBlock(blockHeight) {
         const block = await this.getBlock(blockHeight);
         const blockHash = block.hash;
-        
+
         block.hash = '';
 
         const validBlockHash = SHA256(JSON.stringify(block)).toString();
@@ -80,13 +74,13 @@ class Blockchain {
       let chain = [];
 
       let chainLength = await this.getBlockHeight();
-      
+
       for (let i = 0; i < this.chainLength -1; i++) {
-        
+
         // validate block
         let validBlock = await this.validateBlock(i);
         if (!validBlock) errorLog.push(i);
-        
+
         // compare blocks hash link
         let blockHash = await this.getBlock(i).hash;
         let previousHash = await this.getBlock(i + 1).previousBlockHash;

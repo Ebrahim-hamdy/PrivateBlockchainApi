@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 require('./app/routes/block.routes.js')(app);
 
 // listen for requests
-const port = process.env.PORT || 9600;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
