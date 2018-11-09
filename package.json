@@ -1,0 +1,23 @@
+{
+  "name": "private-blockchain-api",
+  "version": "1.0.0",
+  "description": "A simple api implementation of private blockchain.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "blockchain",
+    "node",
+    "express",
+    "leveDB",
+    "Udacity"
+  ],
+  "author": "ebrahim-hamdy",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.4",
+    "level": "^4.0.0"
+  }
+}
