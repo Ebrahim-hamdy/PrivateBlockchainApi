@@ -30,7 +30,7 @@ This starts the API server, listening on port 8000 of localhost.
 
 The endpoints implemented are:
 
-### POST /addBlock
+### POST /block
 
 input:
 ```json
@@ -38,16 +38,48 @@ input:
   "data": ""
 }
 ```
-output: Return new block after creation.
+sample output:
+```json
+{
+    "hash": "e3306f285588eaa2857be698c6f819c6d59f2754579ad02ad6767de7fe2a06c6",
+    "height": 20,
+    "body": "add new Block",
+    "time": "1541785917",
+    "previousBlockHash": "61208064f8ea3265428fd50cf657a626232883437006642d8b82b01acccbe838"
+}
+```
 
-### GET /getBlock/{height}
+### GET /block/{height}
 
-output: Return a single block with a height.
+sample output:
+```json
+{
+    "hash": "e3306f285588eaa2857be698c6f819c6d59f2754579ad02ad6767de7fe2a06c6",
+    "height": 20,
+    "body": "add new Block",
+    "time": "1541785917",
+    "previousBlockHash": "61208064f8ea3265428fd50cf657a626232883437006642d8b82b01acccbe838"
+}
+```
 
 ### GET /getBlockHeight
 
-output: Return block size
+sample output: block size 21
 
 ### GET /getChain
 
-output: Retrieve and return chain.
+sample output:
+```json
+{
+        "hash": "ceae0114d0bb9dc41ae4cd7d3e841c5595bc2c5a0de35782a16fa9b35357ac53",
+        "height": 0,
+        "body": "First block in the chain - Genesis block",
+        "time": "1541780203"
+}, {
+        "hash": "e3306f285588eaa2857be698c6f819c6d59f2754579ad02ad6767de7fe2a06c6",
+        "height": 20,
+        "body": "add new Block",
+        "time": "1541785917",
+        "previousBlockHash": "ceae0114d0bb9dc41ae4cd7d3e841c5595bc2c5a0de35782a16fa9b35357ac53"
+}
+```
